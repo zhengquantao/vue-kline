@@ -1337,6 +1337,10 @@ const VueKline = {
     );
   },
   methods: {
+    redraw() {
+      this.kline.draw();
+    },
+
     resize(w, h) {
       this.kline.resize(w, h);
     },

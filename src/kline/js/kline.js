@@ -1,6 +1,6 @@
-import {Control} from './control'
-import {ChartManager} from './chart_manager'
-import {ChartSettings} from './chart_settings'
+import { Control } from './control'
+import { ChartManager } from './chart_manager'
+import { ChartSettings } from './chart_settings'
 import $ from 'jquery'
 
 export default class Kline {
@@ -26,7 +26,7 @@ export default class Kline {
         this.language = "zh-cn";
         this.theme = "dark";
         this.ranges = ["1w", "1d", "1h", "30m", "15m", "5m", "1m", "line"];
-        this.depthWidth=100;
+        this.depthWidth = 100;
 
         this.periodMap = {
             "01w": 7 * 86400 * 1000,
@@ -61,12 +61,13 @@ export default class Kline {
             "line": "line"
         };
         //event
-        this.onResize=null;
-        this.onLangChange=null;
-        this.onSymbolChange=null;
-        this.onThemeChange=null;
-        this.onRangeChange=null;
-        this.onRequestData=null;
+        this.onResize = null;
+        this.onLangChange = null;
+        this.onSymbolChange = null;
+        this.onThemeChange = null;
+        this.onRangeChange = null;
+        this.onRequestData = null;
+
 
         Object.assign(this, option);
 
@@ -104,9 +105,9 @@ export default class Kline {
 
         this.setTheme(this.theme);
         this.setLanguage(this.language);
-        this.setSymbol(this.symbol,this.symbolName);
+        this.setSymbol(this.symbol, this.symbolName);
 
-        $(this.element).css({visibility: "visible"});
+        $(this.element).css({ visibility: "visible" });
     }
 
     resize(width, height) {
@@ -118,7 +119,7 @@ export default class Kline {
     setSymbol(symbol, symbolName) {
         this.symbol = symbol;
         this.symbolName = symbolName;
-        Control.switchSymbol(symbol,symbolName);
+        Control.switchSymbol(symbol, symbolName);
         this.onSymbolChangeFunc(symbol, symbolName);
     }
 
@@ -139,7 +140,7 @@ export default class Kline {
         }
     }
 
-    setDepthWidth(width){
+    setDepthWidth(width) {
         this.depthWidth = width;
         ChartManager.instance.redraw('All', false);
     }
@@ -152,7 +153,7 @@ export default class Kline {
         if (this.debug) {
             console.log("DEBUG: chart resized to width: " + width + " height: " + height);
         }
-        this.onResize && this.onResize(width,height);
+        this.onResize && this.onResize(width, height);
     }
 
     onLangChangeFunc(lang) {
@@ -166,7 +167,7 @@ export default class Kline {
         if (this.debug) {
             console.log("DEBUG: symbol changed to " + symbol + " " + symbolName);
         }
-        this.onSymbolChange && this.onSymbolChange(symbol,symbolName);
+        this.onSymbolChange && this.onSymbolChange(symbol, symbolName);
     }
 
     onThemeChangeFunc(theme) {
@@ -183,11 +184,11 @@ export default class Kline {
         this.onRangeChange && this.onRangeChange(range);
     }
 
-    onRequestDataFunc(param,callback){
+    onRequestDataFunc(param, callback) {
         if (this.debug) {
             console.log("DEBUG: request data to " + JSON.stringify(param));
         }
-        this.onRequestData && this.onRequestData(param,callback);
+        this.onRequestData && this.onRequestData(param, callback);
     }
 
     registerMouseEvent() {
@@ -226,7 +227,7 @@ export default class Kline {
                     } else {
                         d += 4;
                     }
-                    dropdown.css({"margin-left": -d});
+                    dropdown.css({ "margin-left": -d });
                     title.addClass("chart_dropdown-hover");
                     dropdown.addClass("chart_dropdown-hover");
                 })
@@ -270,10 +271,10 @@ export default class Kline {
                 Control.switchPeriod($(this).parent().attr('name'));
             });
             $("#chart_show_depth")
-                .click(function(){
-                    if($(this).hasClass('selected')){
+                .click(function () {
+                    if ($(this).hasClass('selected')) {
                         Control.switchDepth("off");
-                    }else{
+                    } else {
                         Control.switchDepth("on");
                     }
                 });
@@ -516,14 +517,14 @@ export default class Kline {
                     });
 
                     Control.onSize();
-                    $('html,body').css({width: '100%', height: '100%', overflow: 'hidden'});
+                    $('html,body').css({ width: '100%', height: '100%', overflow: 'hidden' });
                 } else {
                     $(Kline.instance.element).attr('style', '');
 
                     $('html,body').attr('style', '');
 
                     Control.onSize(Kline.instance.width, Kline.instance.height);
-                    $(Kline.instance.element).css({visibility: 'visible', height: Kline.instance.height + 'px'});
+                    $(Kline.instance.element).css({ visibility: 'visible', height: Kline.instance.height + 'px' });
                 }
             });
         })
