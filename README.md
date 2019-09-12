@@ -9,9 +9,9 @@
 
 <<<<<<< HEAD
 * 效果和这个一样后面[Demo](https://lindakai2016.github.io/react-kline/index.html)
-=======
+
 * [Demo]效果和这个一样后面(https://lindakai2016.github.io/react-kline/index.html)
->>>>>>> origin/master
+
 
 ### 安装和使用
 
