@@ -7,7 +7,7 @@
 
 ### 演示地址
 
-* [Demo](https://lindakai2016.github.io/react-kline/index.html)
+* [Demo]效果和这个一样后面(https://lindakai2016.github.io/react-kline/index.html)
 
 ### 安装和使用
 
@@ -22,7 +22,7 @@ $ npm install vue-kline
 ```html
    <template>
     <div id="app">
-        <Vue-kline :klineParams="klineParams" :klineData="klineData"></Vue-kline>
+        <Vue-kline :klineParams="klineParams" :klineData="klineData" ref="callMethods"></Vue-kline>
     </div>
     </template>
     <script>
@@ -80,6 +80,12 @@ $ npm install vue-kline
     </style>
 
 ```
+### 参数
+
+```
+klineParams:{}  // K线图参数(具体参数看 构建选项)
+klineData:{}    // 数据(只需把指定数据放到这里即可渲染出K线)
+```
 
 ### 构建选项
 
@@ -105,7 +111,7 @@ $ npm install vue-kline
     设置画布大小
 
 ```javascript
-resize(1200, 550);
+this.$refs.callMethods.resize(1200, 550);
 ```
 
 * setSymbol(string symbol, string symbolName)
@@ -113,7 +119,7 @@ resize(1200, 550);
     设置交易品种
 
 ```javascript
-setSymbol('usd/btc', 'USD/BTC');
+this.$refs.callMethods.setSymbol('usd/btc', 'USD/BTC');
 ```
 
 * setTheme(string style)
@@ -121,7 +127,7 @@ setSymbol('usd/btc', 'USD/BTC');
     设置主题
 
 ```javascript
-setTheme('dark');  // dark/light
+this.$refs.callMethods.setTheme('dark');  // dark/light
 ```
 
 * setLanguage(string lang)
@@ -129,7 +135,7 @@ setTheme('dark');  // dark/light
     设置语言
 
 ```javascript
-setLanguage('en-us');  // en-us/zh-ch/zh-tw
+this.$refs.callMethods.setLanguage('en-us');  // en-us/zh-ch/zh-tw
 ```
 
 * setIntervalTime: function (intervalTime) 
@@ -137,7 +143,7 @@ setLanguage('en-us');  // en-us/zh-ch/zh-tw
     设置请求间隔时间(ms)
 
 ```javascript
-setIntervalTime(5000);
+this.$refs.callMethods.setIntervalTime(5000);
 ```
 
 * setDepthWidth: function (width)
@@ -145,7 +151,7 @@ setIntervalTime(5000);
     设置深度图宽度
 
 ```javascript
-setDepthWidth(100);
+this.$refs.callMethods.setDepthWidth(100);
 ```
 
 

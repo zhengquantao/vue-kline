@@ -1,4 +1,4 @@
-<script>
+ <script>
 import "./css/main.css";
 import Kline from "./js/kline.js";
 const VueKline = {
