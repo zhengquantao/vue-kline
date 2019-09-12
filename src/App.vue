@@ -4,7 +4,7 @@
   </div>
 </template>
 <script>
-import VueKline from "vue-kline";
+import VueKline from "./kline/kline";
 export default {
   name: "HelloWorld",
   components: {
