@@ -21,7 +21,8 @@ const VueKline = {
         intervalTime: this.klineParams.intervalTime,
         debug: false,
         depthWidth: this.klineParams.depthWidth,
-        onRequestData: this.onRequestData
+        onRequestData: this.onRequestData,
+        onRangeChange: this.onRangeChange
       },
       kline: null
     };
@@ -1360,6 +1361,11 @@ const VueKline = {
     setIntervalTime(intervalTime) {
       this.kline.setIntervalTime(intervalTime);
     },
+
+    onRangeChange(range) {
+      return range;
+    },
+
     onRequestData(param, callback) {
       let data = this.klineData;
       callback(data);

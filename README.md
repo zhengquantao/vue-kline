@@ -102,7 +102,7 @@ $ npm install vue-kline
         this.$refs.callMethods.setLanguage(string lang);
         this.$refs.callMethods.setIntervalTime(int intervalTime);
         this.$refs.callMethods.setDepthWidth(int width);
-        this.$refs.callMethodsonRangeChange();
+        this.$refs.callMethods.onRangeChange();
         this.$refs.callMethods.redraw();
       }
     };
