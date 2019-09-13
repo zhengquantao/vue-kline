@@ -1,5 +1,5 @@
-# vue-kline
-
+# vue-kline     [![npm version](https://badge.fury.io/js/vue-kline.svg)](https://badge.fury.io/js/vue-kline)
+[![NPM](https://nodei.co/npm/vue-kline.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/vue-kline/)
 > 
 
 ## Build Setup
@@ -9,8 +9,6 @@
 
 
 * 效果和这个一样后面[Demo](https://lindakai2016.github.io/react-kline/index.html)
-
-* [Demo]效果和这个一样后面(https://lindakai2016.github.io/react-kline/index.html)
 
 
 ### 安装和使用
