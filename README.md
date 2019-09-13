@@ -50,7 +50,7 @@ $ npm install vue-kline
     </script>
 
 ```
-### 自定制(没有使用Vuex作为组件数据转输方式,而是用:xxxx数据绑定方式, 所以vue-kline很轻便、简单，适合所有Vue人群)
+### 自定制(没有使用Vuex作为组件数据转输方式,而是用:xxxx数据绑定方式, 所以vue-kline很轻便、简单)
 ```html
     <template>
       <div class="container">
@@ -209,16 +209,6 @@ this.$refs.callMethods.onRangeChange();
 | `onRangeChange: function(range)`   | 聚合时间改变时触发
 | `onRequestData: function(param,callback)`| 请求数据时触发，触发时间间隔由`intervalTime`指定，`param`请求参数，`callback(res)`结果回调函数。无论请求是否成功，必须在`onRequestData`里调用`callback`,否则会中断数据请求。
 
-### 数据请求param格式
-
-```json
-{
-  "symbol": "BTC",		// 交易品种
-  "range": 900000,		// range类型，毫秒
-  "limit": 1000,
-  "since": "1512205140000"      // 时间
-}
-```
 
 ### 回调函数res格式
 
