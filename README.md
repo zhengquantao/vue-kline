@@ -8,7 +8,7 @@
 ### 演示地址
 
 
-* 效果和这个一样后面[Demo](https://lindakai2016.github.io/react-kline/index.html)
+* 效果和这个一样后面[Demo](https://zhengquantao.github.io/vue-Kline/)
 
 
 ### 安装和使用
