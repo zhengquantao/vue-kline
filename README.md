@@ -1,6 +1,8 @@
 # vue-kline     [![npm version](https://badge.fury.io/js/vue-kline.svg)](https://badge.fury.io/js/vue-kline)
 [![NPM](https://nodei.co/npm/vue-kline.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/vue-kline/)
 > 
+# 效果图
+<img src="https://github.com/zhengquantao/vue-Kline/blob/master/static/demo.png" width=100%>
 
 ## Build Setup
 > 本项目基于Vue的k线图.某K线插件做了一些封装和二次开发,使其更加便于使用和修改,方便后来的开发者. 修改主要涉及以下几个点:
