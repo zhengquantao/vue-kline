@@ -54,7 +54,7 @@ $ npm install vue-kline
 ```html
     <template>
       <div class="container">
-        <!-- :klineParams="klineParams" :klineData="klineData" 绑定下面data数据 用于自定制数据传输到vue-kline, ref="data"绑定一个DOM事件 用于调用接口  --->
+        <!-- :klineParams="klineParams" :klineData="klineData" 绑定下面data数据 用于自定制数据传输到vue-kline, ref="callMethods"绑定一个DOM事件 用于调用接口  --->
         <Vue-kline :klineParams="klineParams" :klineData="klineData" ref="callMethods"></Vue-kline>
       </div>
     </template>
