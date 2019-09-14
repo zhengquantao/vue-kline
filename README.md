@@ -1,7 +1,7 @@
 # vue-kline     [![npm version](https://badge.fury.io/js/vue-kline.svg)](https://badge.fury.io/js/vue-kline)
 [![NPM](https://nodei.co/npm/vue-kline.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/vue-kline/)
 > 
-# 效果图
+* 效果图
 <img src="https://github.com/zhengquantao/vue-Kline/blob/master/static/demo.png" width=100%>
 
 ## Build Setup
