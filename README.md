@@ -95,7 +95,7 @@ $ npm install vue-kline
       mounted(){
         this.requestData;             // 进入页面时执行 requestData()
       },
-      methods:{                       // 可调用方法
+      methods:{                       // 可根据使用场景调用内部自定制方法(如果不需要就不写)
         this.$refs.callMethods.resize(int width, int height);
         this.$refs.callMethods.setSymbol(string symbol, string symbolName)
         this.$refs.callMethods.setTheme(string style);
@@ -207,7 +207,7 @@ this.$refs.callMethods.onRangeChange();
 | `onSymbolChange: function(symbol, symbolName)`   | 交易品种改变时触发
 | `onThemeChange: function(theme)`   | 主题改变时触发
 | `onRangeChange: function(range)`   | 聚合时间改变时触发
-| `onRequestData: function(param,callback)`| 请求数据时触发，触发时间间隔由`intervalTime`指定，`param`请求参数，`callback(res)`结果回调函数。无论请求是否成功，必须在`onRequestData`里调用`callback`,否则会中断数据请求。
+
 
 
 ### 回调函数res格式
@@ -264,3 +264,18 @@ this.$refs.callMethods.onRangeChange();
 
 * `lines`: K线图, 依次是: 时间(ms), 开盘价, 最高价, 最低价, 收盘价, 成交量
 * `depths`深度图数据,`asks`: 一定比例的卖单列表, `bids`:一定比例的买单列表, 其中每项的值依次是 : 成交价, 成交量
+
+
+## vue-kline起源与ctpbee发展计划
+vue-kline起因是我们内部开源ctpbee量化项目,需要将数据直观展示给用户,而网上又没有关于vue的实现。在此背景下vue-kline孕育而生。
+
+ctpbee主要面对开发者, 希望能得到各位大佬的支持. 后续不再开发examples. 
+策略以及指标等工具都以ctpbee_** 形式发布. ctpbee只提供最小的内核. 本人崇尚开源, 无论你是交易者还是程序员, 只要你有新的想法以及对开源感兴趣, 欢迎基于ctpbee 开发出新的可用工具. 我会维护一个工具列表, 指引用户前往使用. 
+
+## 最后一句 
+如果这个能帮助到你, 请点击star来支持我噢. ^_^  
+
+如果你希望贡献代码, 欢迎加群一起讨论和或者提交PR  QQ群号(: 756319143) [点进加入群聊以了解更多](https://jq.qq.com/?_wv=1027&k=5xWbIq3)
+
+最后一句 ----> 祝各位大佬都能赚钱 ！
+
