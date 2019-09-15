@@ -294,7 +294,7 @@ this.$refs.callMethods.onRangeChange();
 ## vue-kline起源与ctpbee发展计划
 vue-kline起因是我们内部开源ctpbee量化项目,需要将数据直观展示给用户,而网上又没有关于vue的实现。在此背景下vue-kline孕育而生。
 
-ctpbee主要面对开发者, 希望能得到各位大佬的支持. 后续不再开发examples. 
+[ctpbee](https://github.com/ctpbee/ctpbee)是一个可供使用的交易微框架, 主要面对开发者, 希望能得到各位大佬的支持. 
 策略以及指标等工具都以ctpbee_** 形式发布. ctpbee只提供最小的内核. 本人崇尚开源, 无论你是交易者还是程序员, 只要你有新的想法以及对开源感兴趣, 欢迎基于ctpbee 开发出新的可用工具. 我会维护一个工具列表, 指引用户前往使用. 
 
 ## 最后一句 
