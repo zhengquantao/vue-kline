@@ -30,7 +30,9 @@
 安装
 
 ```bash
-$ npm install vue-kline
+$ npm install vue-kline 
+    OR
+  only download src （不推荐,要改变import引入路径和自己安装依赖,对新人不友好）
 ```
 
 * 使用组件方式引入, 放在想添加的页面上
@@ -50,6 +52,25 @@ $ npm install vue-kline
       },
     };
     </script>
+
+* OR 直接下载src文件
+```html
+  <template>
+    <div id="app">
+        <!--把子组件放到想放的位置-->
+        <Vue-kline></Vue-kline>
+    </div>
+    </template>
+    <script>
+    import VueKline from "./src/kline"; //当前页引入vue-kline(引入方式不同,其他方式相同)
+    export default {
+      components: {
+          VueKline,                   //以子组件形式注册到当前页面中
+      },
+    };
+    </script>
+  
+```
 
 ```
 ### 自定制(没有使用Vuex作为组件数据转输方式,而是用:xxxx数据绑定方式, 所以vue-kline很轻便、简单)
