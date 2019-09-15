@@ -52,6 +52,7 @@ $ npm install vue-kline
       },
     };
     </script>
+```
 
 * OR 直接下载src文件
 ```html
@@ -72,7 +73,6 @@ $ npm install vue-kline
   
 ```
 
-```
 ### 自定制(没有使用Vuex作为组件数据转输方式,而是用:xxxx数据绑定方式, 所以vue-kline很轻便、简单)
 ```html
     <template>
