@@ -54,7 +54,7 @@ $ npm install vue-kline
     </script>
 ```
 
-* OR 直接下载src文件
+* OR 仅仅下载src文件
 ```html
   <template>
     <div id="app">
