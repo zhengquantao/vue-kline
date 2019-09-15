@@ -63,7 +63,7 @@ $ npm install vue-kline
     </div>
     </template>
     <script>
-    import VueKline from "./src/kline"; //当前页引入vue-kline(引入方式不同,其他方式相同)
+    import VueKline from "./src/kline"; //当前页引入vue-kline(引入方式不同,其他方式相同,注意要改你自己的路径)
     export default {
       components: {
           VueKline,                   //以子组件形式注册到当前页面中
@@ -288,6 +288,8 @@ this.$refs.callMethods.onRangeChange();
 * `lines`: K线图, 依次是: 时间(ms), 开盘价, 最高价, 最低价, 收盘价, 成交量
 * `depths`深度图数据,`asks`: 一定比例的卖单列表, `bids`:一定比例的买单列表, 其中每项的值依次是 : 成交价, 成交量
 
+## 特别说明
+* 当然细心的你可能会发现我npm包名(vue-kline)和github上的名字(vue-Kline)会不一样,对你造成一定误解,对此我十分抱歉。原因是当我先把vue-kline发布到npm上,再回到github上是发现名字十天前已经被人使用了。没有办法github上只能硬着头皮用K大写 vue-Kline。 
 
 ## vue-kline起源与ctpbee发展计划
 vue-kline起因是我们内部开源ctpbee量化项目,需要将数据直观展示给用户,而网上又没有关于vue的实现。在此背景下vue-kline孕育而生。
