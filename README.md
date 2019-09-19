@@ -63,7 +63,7 @@ $ npm install vue-kline
     </div>
     </template>
     <script>
-    import VueKline from "./src/kline"; //当前页引入vue-kline(引入方式不同,其他方式相同,注意要改你自己的路径)
+    import VueKline from "./src/kline/kline"; //当前页引入vue-kline(引入方式不同,其他方式相同,注意要改你自己的路径)
     export default {
       components: {
           VueKline,                   //以子组件形式注册到当前页面中
