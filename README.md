@@ -290,6 +290,8 @@ this.$refs.callMethods.onRangeChange();
 
 ## 特别说明
 * 当然细心的你可能会发现我npm包名(vue-kline)和github上的名字(vue-Kline)会不一样,对你造成一定误解,对此我十分抱歉。原因是当我先把vue-kline发布到npm上,再回到github上是发现名字十天前已经被人使用了。没有办法github上只能硬着头皮用K大写 vue-Kline。 
+* 朋友如果你是`cli3`+`typescript`你可能会遇到无法显示的问题.只要把kline.vue里的render改成template的形式,就能正常显示
+* 当然如果你想自定义显示精度,可以在`plotters.js`和`util.js`更改,如果有问题,可以加加下面的群号,我会第一时间给你回复
 
 ## vue-kline起源与ctpbee发展计划
 vue-kline起因是我们内部开源ctpbee量化项目,需要将数据直观展示给用户,而网上又没有关于vue的实现。在此背景下vue-kline孕育而生。
