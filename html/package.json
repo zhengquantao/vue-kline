@@ -1,0 +1,35 @@
+{
+  "name": "test_webpack",
+  "version": "1.0.0",
+  "main": "src/entry.js",
+  "scripts": {
+    "dev": "webpack --progress --colors --watch",
+    "pack": "webpack --progress --colors",
+    "build": "webpack --config ./webpack.config.js"
+  },
+  "keywords": [
+    "kline"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.6.2",
+    "@babel/preset-env": "^7.6.2",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "css-loader": "^3.2.0",
+    "firebase": "^7.1.0",
+    "html-loader": "^0.5.5",
+    "style-loader": "^1.0.0",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "url-loader": "^2.2.0",
+    "webpack": "^4.41.0"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.3.9"
+  },
+  "description": ""
+}
