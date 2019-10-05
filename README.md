@@ -98,44 +98,7 @@ $ npm install vue-kline （vue组件方式）
         kline.draw();
         params = "";
         kline.onRequestData = function onRequestData(params, callback) {
-            let data = {
-                "success": true,
-                "data": {
-                    "lines": [
-                        [
-                            1.50790476E12,
-                            99.30597249871,
-                            99.30597249871,
-                            99.30597249871,
-                            99.30597249871,
-                            66.9905449283
-                        ]
-                    ],
-                    "trades": [
-                        {
-                            "amount": 0.02,
-                            "price": 5798.79,
-                            "tid": 373015085,
-                            "time": 1508136949000,
-                            "type": "buy"
-                        }
-                    ],
-                    "depths": {
-                        "asks": [
-                            [
-                                500654.27,
-                                0.5
-                            ]
-                        ],
-                        "bids": [
-                            [
-                                5798.79,
-                                0.013
-                            ]
-                        ]
-                    }
-                }
-            }
+            let data = "这里是你的数据"
             callback(data)
         }
     </script>
