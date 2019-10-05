@@ -30,9 +30,11 @@
 安装
 
 ```bash
-$ npm install vue-kline 
+$ npm install vue-kline （vue组件方式）
     OR
   only download src （不推荐,要改变import引入路径和自己安装依赖,对新人不友好）
+    OR
+  only download html （适合html方式引入）
 ```
 
 * 使用组件方式引入, 放在想添加的页面上
@@ -69,6 +71,73 @@ $ npm install vue-kline
           VueKline,                   //以子组件形式注册到当前页面中
       },
     };
+    </script>
+  
+```
+
+* OR 仅仅下载html文件
+```html
+    <div id="kline_container"></div>
+    <script src="html/lib/jquery.js"></script>
+    <script src="html/lib/jquery.mousewheel.js"></script>
+    <script src="html/dist/kline.js"></script>
+    <script>
+        kline = new Kline({
+            element: "#kline_container",
+            symbol: "BTC",
+            symbolName: "比特币",
+            height: 650,
+            width: 1200,
+            theme: 'dark',
+            language: 'zh-cn',
+            ranges: ["1w", "1d", "1h", "30m", "15m", "5m", "1m", "line"],
+            limit: 1000,
+            intervalTime: 1000,
+            depthWidth: 100,
+        });
+        kline.draw();
+        params = "";
+        kline.onRequestData = function onRequestData(params, callback) {
+            let data = {
+                "success": true,
+                "data": {
+                    "lines": [
+                        [
+                            1.50790476E12,
+                            99.30597249871,
+                            99.30597249871,
+                            99.30597249871,
+                            99.30597249871,
+                            66.9905449283
+                        ]
+                    ],
+                    "trades": [
+                        {
+                            "amount": 0.02,
+                            "price": 5798.79,
+                            "tid": 373015085,
+                            "time": 1508136949000,
+                            "type": "buy"
+                        }
+                    ],
+                    "depths": {
+                        "asks": [
+                            [
+                                500654.27,
+                                0.5
+                            ]
+                        ],
+                        "bids": [
+                            [
+                                5798.79,
+                                0.013
+                            ]
+                        ]
+                    }
+                }
+            }
+            callback(data)
+        }
     </script>
   
 ```
