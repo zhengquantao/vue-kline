@@ -56,7 +56,7 @@ $ npm install vue-kline （vue组件方式）
     </script>
 ```
 
-* OR 仅仅下载src文件
+* OR 仅仅下载src文件夹
 ```html
   <template>
     <div id="app">
@@ -75,7 +75,7 @@ $ npm install vue-kline （vue组件方式）
   
 ```
 
-* OR 仅仅下载html文件
+* OR 仅仅下载html文件夹
 ```html
     <div id="kline_container"></div>
     <script src="html/lib/jquery.js"></script>
