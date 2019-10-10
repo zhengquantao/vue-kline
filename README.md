@@ -75,36 +75,6 @@ $ npm install vue-kline （vue组件方式）
   
 ```
 
-* OR 仅仅下载html文件夹
-```html
-    <div id="kline_container"></div>
-    <script src="html/lib/jquery.js"></script>
-    <script src="html/lib/jquery.mousewheel.js"></script>
-    <script src="html/dist/kline.js"></script>
-    <script>
-        kline = new Kline({
-            element: "#kline_container",
-            symbol: "BTC",
-            symbolName: "比特币",
-            height: 650,
-            width: 1200,
-            theme: 'dark',
-            language: 'zh-cn',
-            ranges: ["1w", "1d", "1h", "30m", "15m", "5m", "1m", "line"],
-            limit: 1000,
-            intervalTime: 1000,
-            depthWidth: 100,
-        });
-        kline.draw();
-        params = "";
-        kline.onRequestData = function onRequestData(params, callback) {
-            let data = "这里是你的数据"
-            callback(data)
-        }
-    </script>
-  
-```
-
 ### 自定制(没有使用Vuex作为组件数据转输方式,而是用:xxxx数据绑定方式, 所以vue-kline很轻便、简单)
 ```html
     <template>
@@ -163,6 +133,36 @@ $ npm install vue-kline （vue组件方式）
     };
     </script>
 
+```
+
+* OR 仅仅下载html文件夹
+```html
+    <div id="kline_container"></div>
+    <script src="html/lib/jquery.js"></script>
+    <script src="html/lib/jquery.mousewheel.js"></script>
+    <script src="html/dist/kline.js"></script>
+    <script>
+        kline = new Kline({
+            element: "#kline_container",
+            symbol: "BTC",
+            symbolName: "比特币",
+            height: 650,
+            width: 1200,
+            theme: 'dark',
+            language: 'zh-cn',
+            ranges: ["1w", "1d", "1h", "30m", "15m", "5m", "1m", "line"],
+            limit: 1000,
+            intervalTime: 1000,
+            depthWidth: 100,
+        });
+        kline.draw();
+        params = "";
+        kline.onRequestData = function onRequestData(params, callback) {
+            let data = "这里是你的数据"
+            callback(data)
+        }
+    </script>
+  
 ```
 ### 参数
 
