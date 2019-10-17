@@ -114,6 +114,7 @@ $ npm install vue-kline （vue组件方式）
           })
           .then(ret => {
             this.klineData = ret      // 把返回数据赋值到上面的 klineData, 
+            this.$refs.callMethods.setSymbol(string symbol, string symbolName) //更改交易代号
           });
         },  
       },
