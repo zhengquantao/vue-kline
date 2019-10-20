@@ -115,7 +115,6 @@ $ npm install vue-kline （vue组件方式）
           .then(ret => {
             this.klineData = ret.data      // 把返回数据赋值到上面的 klineData, 
             this.$refs.callMethods.kline.charMgr.getChart().updateDataAndDisplay(ret.data.data.lines); //强制更改缓存中的lines值,防止显示不同步
-            this.$refs.callMethods.setSymbol(string symbol, string symbolName) //更改交易代号
           });
         },  
       },
