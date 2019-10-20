@@ -44,7 +44,7 @@ export class Chart {
          * 46-50 lines is QQ "挺好!" add
         */
         if (newData !== undefined) {
-            ChartManager.instance.setCurrentDataSource('frame0.k0', this._symbol + '.' + this._range);
+            ChartManager.instance.setCurrentDataSource('frame0.k0', this._symbol + '.' + this._range, newData);
         } else {
             ChartManager.instance.setCurrentDataSource('frame0.k0', this._symbol + '.' + this._range);
         }
