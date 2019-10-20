@@ -1,16 +1,16 @@
-import {Control} from './control'
-import {Chart} from './chart'
+import { Control } from './control'
+import { Chart } from './chart'
 import * as indicators from './indicators'
 import * as ranges from './ranges'
 import * as templates from './templates'
 import * as data_sources from './data_sources'
-import {ChartSettings} from './chart_settings'
+import { ChartSettings } from './chart_settings'
 import * as data_providers from './data_providers'
 import * as themes from './themes'
 import * as plotters from './plotters'
 import * as ctools from './ctools'
 import * as areas from './areas'
-import {Util} from './util'
+import { Util } from './util'
 import $ from 'jquery'
 require('jquery-mousewheel');
 
@@ -304,8 +304,25 @@ export class ChartManager {
         this._titles[dsName] = title;
     }
 
-    setCurrentDataSource(dsName, dsAlias) {
+    setCurrentDataSource(dsName, dsAlias, newData) {
         let cached = this.getCachedDataSource(dsAlias);
+        /**
+         * 312-325 lines is QQ "挺好!" add
+         */
+        if (newData) {
+            cached['_dataItems'].length = 0;
+            const lines = []
+            newData.forEach((item) => {
+                obj['close'] = item[4];
+                obj['date'] = item[0];
+                obj['high'] = item[2];
+                obj['low'] = item[3];
+                obj['open'] = item[1];
+                obj['volume'] = item[5];
+                lines.push(obj);
+            });
+            cached['_dataItems'] = lines
+        }
         if (cached !== undefined && cached !== null) {
             this.setDataSource(dsName, cached, true);
         } else {
@@ -425,7 +442,7 @@ export class ChartManager {
     }
 
     setFrameMousePos(name, px, py) {
-        this._frameMousePos[name] = {x: px, y: py};
+        this._frameMousePos[name] = { x: px, y: py };
     }
 
     drawArea(context, area, plotterNames) {
@@ -950,7 +967,7 @@ export class ChartManager {
         if (!notLoadSettings) {
             indic.setParameters(ChartSettings.get().indics[indicName]);
         }
-        return {"indic": indic, "range": range};
+        return { "indic": indic, "range": range };
     }
 
     setMainIndicator(dsName, indicName) {

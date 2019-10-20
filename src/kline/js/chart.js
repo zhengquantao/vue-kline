@@ -1,7 +1,7 @@
-import {ChartManager} from './chart_manager'
-import {Control} from './control'
+import { ChartManager } from './chart_manager'
+import { Control } from './control'
 import Kline from './kline'
-import {Template} from './templates'
+import { Template } from './templates'
 import $ from 'jquery'
 
 export class Chart {
@@ -37,10 +37,18 @@ export class Chart {
         this.updateDataAndDisplay();
     }
 
-    updateDataAndDisplay() {
+    updateDataAndDisplay(newData) {
         Kline.instance.symbol = this._symbol;
         Kline.instance.range = this._range;
-        ChartManager.instance.setCurrentDataSource('frame0.k0', this._symbol + '.' + this._range);
+        /**
+         * 46-50 lines is QQ "挺好!" add
+        */
+        if (newData !== undefined) {
+            ChartManager.instance.setCurrentDataSource('frame0.k0', this._symbol + '.' + this._range);
+        } else {
+            ChartManager.instance.setCurrentDataSource('frame0.k0', this._symbol + '.' + this._range);
+        }
+        //ChartManager.instance.setCurrentDataSource('frame0.k0', this._symbol + '.' + this._range);
         ChartManager.instance.setNormalMode();
         let f = Kline.instance.chartMgr.getDataSource("frame0.k0").getLastDate();
         if (f === -1) {
@@ -110,7 +118,7 @@ export class Chart {
         for (let i = _data.asks_si; i >= _data.asks_ei; i--) {
             if (i === _data.asks_si && _data.array[i] !== undefined) {
                 _data.array[i].amounts = _data.array[i].amount;
-            } else if(_data.array[i + 1] !== undefined) {
+            } else if (_data.array[i + 1] !== undefined) {
                 _data.array[i].amounts = _data.array[i + 1].amounts + _data.array[i].amount;
             }
         }
@@ -141,7 +149,7 @@ export class Chart {
             if (Template.displayVolume === false)
                 index = 1;
             */
-            let index=1;
+            let index = 1;
             let areaName = ChartManager.instance.getIndicatorAreaName('frame0.k0', index);
             if (areaName !== '')
                 ChartManager.instance.removeIndicator(areaName);
@@ -151,7 +159,7 @@ export class Chart {
             if (Template.displayVolume === false)
                 index = 1;
             */
-            let index=1;
+            let index = 1;
             let areaName = ChartManager.instance.getIndicatorAreaName('frame0.k0', index);
             if (areaName === '') {
                 Template.createIndicatorChartComps('frame0.k0', indicName);
