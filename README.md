@@ -85,7 +85,7 @@ $ npm install vue-kline （vue组件方式）
     </template>
     <script>
     import VueKline from "vue-kline";
-    improt axios from "axios"
+    import axios from "axios"
     export default {
       components: {
         ...
