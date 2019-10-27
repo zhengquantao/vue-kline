@@ -1,8 +1,8 @@
 import Kline from './kline'
-import {NamedObject} from './named_object'
-import {ChartManager} from './chart_manager'
-import {Util} from './util'
-import {CPoint} from './cpoint'
+import { NamedObject } from './named_object'
+import { ChartManager } from './chart_manager'
+import { Util } from './util'
+import { CPoint } from './cpoint'
 import * as exprs from './exprs'
 import * as themes from './themes'
 import * as data_providers from './data_providers'
@@ -291,37 +291,37 @@ export class CandlestickPlotter extends NamedObject {
                 let bottom = range.toY(open);
                 let iH = Math.max(bottom - top, 1);
                 if (iH > 1 && iW > 1 && dark)
-                    strokePosRects.push({x: left + 0.5, y: top + 0.5, w: iW - 1, h: iH - 1});
+                    strokePosRects.push({ x: left + 0.5, y: top + 0.5, w: iW - 1, h: iH - 1 });
                 else
-                    fillPosRects.push({x: left, y: top, w: Math.max(iW, 1), h: Math.max(iH, 1)});
+                    fillPosRects.push({ x: left, y: top, w: Math.max(iW, 1), h: Math.max(iH, 1) });
                 if (data.high > close) {
                     high = Math.min(high, top - 1);
-                    fillPosRects.push({x: center, y: high, w: 1, h: top - high});
+                    fillPosRects.push({ x: center, y: high, w: 1, h: top - high });
                 }
                 if (open > data.low) {
                     low = Math.max(low, bottom + 1);
-                    fillPosRects.push({x: center, y: bottom, w: 1, h: low - bottom});
+                    fillPosRects.push({ x: center, y: bottom, w: 1, h: low - bottom });
                 }
             } else if (close === open) {
                 let top = range.toY(close);
-                fillUchRects.push({x: left, y: top, w: Math.max(iW, 1), h: 1});
+                fillUchRects.push({ x: left, y: top, w: Math.max(iW, 1), h: 1 });
                 if (data.high > close)
                     high = Math.min(high, top - 1);
                 if (open > data.low)
                     low = Math.max(low, top + 1);
                 if (high < low)
-                    fillUchRects.push({x: center, y: high, w: 1, h: low - high});
+                    fillUchRects.push({ x: center, y: high, w: 1, h: low - high });
             } else {
                 let top = range.toY(open);
                 let bottom = range.toY(close);
                 let iH = Math.max(bottom - top, 1);
-                fillNegRects.push({x: left, y: top, w: Math.max(iW, 1), h: Math.max(iH, 1)});
+                fillNegRects.push({ x: left, y: top, w: Math.max(iW, 1), h: Math.max(iH, 1) });
                 if (data.high > open)
                     high = Math.min(high, top - 1);
                 if (close > data.low)
                     low = Math.max(low, bottom + 1);
                 if (high < low)
-                    fillNegRects.push({x: center, y: high, w: 1, h: low - high});
+                    fillNegRects.push({ x: center, y: high, w: 1, h: low - high });
             }
             left += cW;
             center += cW;
@@ -400,21 +400,21 @@ export class CandlestickHLCPlotter extends Plotter {
                 let bottom = range.toY(open);
                 let iH = Math.max(bottom - top, 1);
                 if (iH > 1 && iW > 1 && dark) {
-                    strokePosRects.push({x: left + 0.5, y: top + 0.5, w: iW - 1, h: iH - 1});
+                    strokePosRects.push({ x: left + 0.5, y: top + 0.5, w: iW - 1, h: iH - 1 });
                 } else {
-                    fillPosRects.push({x: left, y: top, w: Math.max(iW, 1), h: Math.max(iH, 1)});
+                    fillPosRects.push({ x: left, y: top, w: Math.max(iW, 1), h: Math.max(iH, 1) });
                 }
                 if (data.high > close) {
                     high = Math.min(high, top - 1);
-                    fillPosRects.push({x: center, y: high, w: 1, h: top - high});
+                    fillPosRects.push({ x: center, y: high, w: 1, h: top - high });
                 }
                 if (open > data.low) {
                     low = Math.max(low, bottom + 1);
-                    fillPosRects.push({x: center, y: bottom, w: 1, h: low - bottom});
+                    fillPosRects.push({ x: center, y: bottom, w: 1, h: low - bottom });
                 }
             } else if (close === open) {
                 let top = range.toY(close);
-                fillUchRects.push({x: left, y: top, w: Math.max(iW, 1), h: 1});
+                fillUchRects.push({ x: left, y: top, w: Math.max(iW, 1), h: 1 });
                 if (data.high > close) {
                     high = Math.min(high, top - 1);
                 }
@@ -422,13 +422,13 @@ export class CandlestickHLCPlotter extends Plotter {
                     low = Math.max(low, top + 1);
                 }
                 if (high < low) {
-                    fillUchRects.push({x: center, y: high, w: 1, h: low - high});
+                    fillUchRects.push({ x: center, y: high, w: 1, h: low - high });
                 }
             } else {
                 let top = range.toY(open);
                 let bottom = range.toY(close);
                 let iH = Math.max(bottom - top, 1);
-                fillNegRects.push({x: left, y: top, w: Math.max(iW, 1), h: Math.max(iH, 1)});
+                fillNegRects.push({ x: left, y: top, w: Math.max(iW, 1), h: Math.max(iH, 1) });
                 if (data.high > open) {
                     high = Math.min(high, top - 1);
                 }
@@ -436,7 +436,7 @@ export class CandlestickHLCPlotter extends Plotter {
                     low = Math.max(low, bottom + 1);
                 }
                 if (high < low) {
-                    fillNegRects.push({x: center, y: high, w: 1, h: low - high});
+                    fillNegRects.push({ x: center, y: high, w: 1, h: low - high });
                 }
             }
             left += cW;
@@ -509,20 +509,20 @@ export class OHLCPlotter extends Plotter {
             if (data.close > data.open) {
                 let top = range.toY(data.close);
                 let bottom = range.toY(data.open);
-                fillPosRects.push({x: center, y: high, w: 1, h: iH});
-                fillPosRects.push({x: left, y: top, w: iW, h: 1});
-                fillPosRects.push({x: center, y: bottom, w: iW, h: 1});
+                fillPosRects.push({ x: center, y: high, w: 1, h: iH });
+                fillPosRects.push({ x: left, y: top, w: iW, h: 1 });
+                fillPosRects.push({ x: center, y: bottom, w: iW, h: 1 });
             } else if (data.close === data.open) {
                 let y = range.toY(data.close);
-                fillUchRects.push({x: center, y: high, w: 1, h: iH});
-                fillUchRects.push({x: left, y: y, w: iW, h: 1});
-                fillUchRects.push({x: center, y: y, w: iW, h: 1});
+                fillUchRects.push({ x: center, y: high, w: 1, h: iH });
+                fillUchRects.push({ x: left, y: y, w: iW, h: 1 });
+                fillUchRects.push({ x: center, y: y, w: iW, h: 1 });
             } else {
                 let top = range.toY(data.open);
                 let bottom = range.toY(data.close);
-                fillNegRects.push({x: center, y: high, w: 1, h: iH});
-                fillNegRects.push({x: left, y: top, w: iW, h: 1});
-                fillNegRects.push({x: center, y: bottom, w: iW, h: 1});
+                fillNegRects.push({ x: center, y: high, w: 1, h: iH });
+                fillNegRects.push({ x: left, y: top, w: iW, h: 1 });
+                fillNegRects.push({ x: center, y: bottom, w: iW, h: 1 });
             }
             left += cW;
             center += cW;
@@ -765,12 +765,12 @@ export class IndicatorPlotter extends NamedObject {
                 if (start > first) {
                     v = out.execute(start - 1);
                     if (isNaN(v) === false)
-                        points.push({"x": x - cW, "y": range.toY(v)});
+                        points.push({ "x": x - cW, "y": range.toY(v) });
                 }
-                for (let i = start; i < last; i++, x += cW) {
+                for (let i = start; i < last; i++ , x += cW) {
                     v = out.execute(i);
                     if (isNaN(v) === false)
-                        points.push({"x": x, "y": range.toY(v)});
+                        points.push({ "x": x, "y": range.toY(v) });
                 }
                 if (points.length > 0) {
                     let color = out.getColor();
@@ -797,22 +797,22 @@ export class IndicatorPlotter extends NamedObject {
             let iH = range.toHeight(data.volume);
             if (data.close > data.open) {
                 if (iH > 1 && iW > 1 && dark) {
-                    strokePosRects.push({x: left + 0.5, y: top + 0.5, w: iW - 1, h: iH - 1});
+                    strokePosRects.push({ x: left + 0.5, y: top + 0.5, w: iW - 1, h: iH - 1 });
                 } else {
-                    fillPosRects.push({x: left, y: top, w: Math.max(iW, 1), h: Math.max(iH, 1)});
+                    fillPosRects.push({ x: left, y: top, w: Math.max(iW, 1), h: Math.max(iH, 1) });
                 }
             } else if (data.close === data.open) {
                 if (i > 0 && data.close >= ds.getDataAt(i - 1).close) {
                     if (iH > 1 && iW > 1 && dark) {
-                        strokePosRects.push({x: left + 0.5, y: top + 0.5, w: iW - 1, h: iH - 1});
+                        strokePosRects.push({ x: left + 0.5, y: top + 0.5, w: iW - 1, h: iH - 1 });
                     } else {
-                        fillPosRects.push({x: left, y: top, w: Math.max(iW, 1), h: Math.max(iH, 1)});
+                        fillPosRects.push({ x: left, y: top, w: Math.max(iW, 1), h: Math.max(iH, 1) });
                     }
                 } else {
-                    fillNegRects.push({x: left, y: top, w: Math.max(iW, 1), h: Math.max(iH, 1)});
+                    fillNegRects.push({ x: left, y: top, w: Math.max(iW, 1), h: Math.max(iH, 1) });
                 }
             } else {
-                fillNegRects.push({x: left, y: top, w: Math.max(iW, 1), h: Math.max(iH, 1)});
+                fillNegRects.push({ x: left, y: top, w: Math.max(iW, 1), h: Math.max(iH, 1) });
             }
             left += cW;
         }
@@ -846,15 +846,15 @@ export class IndicatorPlotter extends NamedObject {
             if (MACD >= 0) {
                 let iH = range.toHeight(MACD);
                 if ((i === 0 || MACD >= prevMACD) && iH > 1 && iW > 1)
-                    strokePosRects.push({x: left + 0.5, y: middle - iH + 0.5, w: iW - 1, h: iH - 1});
+                    strokePosRects.push({ x: left + 0.5, y: middle - iH + 0.5, w: iW - 1, h: iH - 1 });
                 else
-                    fillPosRects.push({x: left, y: middle - iH, w: Math.max(iW, 1), h: Math.max(iH, 1)});
+                    fillPosRects.push({ x: left, y: middle - iH, w: Math.max(iW, 1), h: Math.max(iH, 1) });
             } else {
                 let iH = range.toHeight(-MACD);
                 if ((i === 0 || MACD >= prevMACD) && iH > 1 && iW > 1)
-                    strokeNegRects.push({x: left + 0.5, y: middle + 0.5, w: iW - 1, h: iH - 1});
+                    strokeNegRects.push({ x: left + 0.5, y: middle + 0.5, w: iW - 1, h: iH - 1 });
                 else
-                    fillNegRects.push({x: left, y: middle, w: Math.max(iW, 1), h: Math.max(iH, 1)});
+                    fillNegRects.push({ x: left, y: middle, w: Math.max(iW, 1), h: Math.max(iH, 1) });
             }
             prevMACD = MACD;
             left += cW;
@@ -1037,7 +1037,7 @@ export class MinMaxPlotter extends NamedObject {
         Plotter.drawLine(context, arrowStart, y, arrowStop, y);
         Plotter.drawLine(context, arrowStart, y, _arrowStop, y + 2);
         Plotter.drawLine(context, arrowStart, y, _arrowStop, y - 2);
-        context.fillText(Util.fromFloat(v, digits), textStart, y);
+        context.fillText(Util.fromFloat(v, 2), textStart, y);
     }
 
 }
@@ -1129,7 +1129,7 @@ export class TimelinePlotter extends Plotter {
             }
             if (text.length > 0) {
                 let x = timeline.toItemCenter(i);
-                gridRects.push({x: x, y: top, w: 1, h: 4});
+                gridRects.push({ x: x, y: top, w: 1, h: 4 });
                 context.fillText(text, x, middle);
             }
         }
@@ -1213,8 +1213,8 @@ export class RangePlotter extends NamedObject {
         let gridRects = [];
         for (let n in gradations) {
             let y = range.toY(gradations[n]);
-            gridRects.push({x: left, y: y, w: 6, h: 1});
-            gridRects.push({x: right - 6, y: y, w: 6, h: 1});
+            gridRects.push({ x: left, y: y, w: 6, h: 1 });
+            gridRects.push({ x: right - 6, y: y, w: 6, h: 1 });
             context.fillText(Util.fromFloat(gradations[n], 2), center, y);
         }
         if (gridRects.length > 0) {
@@ -1475,8 +1475,8 @@ export class COrderGraphPlotter extends NamedObject {
         let gridRects = [];
         for (let n in gradations) {
             let y = range.toY(gradations[n]);
-            gridRects.push({x: left, y: y, w: 6, h: 1});
-            gridRects.push({x: right - 6, y: y, w: 6, h: 1});
+            gridRects.push({ x: left, y: y, w: 6, h: 1 });
+            gridRects.push({ x: right - 6, y: y, w: 6, h: 1 });
         }
         if (gridRects.length > 0) {
             let theme = mgr.getTheme(this.getFrameName());
@@ -1741,11 +1741,11 @@ export class RangeSelectionPlotter extends NamedObject {
         }
         let y = range.getSelectedPosition();
         Plotter.createPolygon(context, [
-            {"x": area.getLeft(), "y": y},
-            {"x": area.getLeft() + 5, "y": y + 10},
-            {"x": area.getRight() - 3, "y": y + 10},
-            {"x": area.getRight() - 3, "y": y - 10},
-            {"x": area.getLeft() + 5, "y": y - 10}
+            { "x": area.getLeft(), "y": y },
+            { "x": area.getLeft() + 5, "y": y + 10 },
+            { "x": area.getRight() - 3, "y": y + 10 },
+            { "x": area.getRight() - 3, "y": y - 10 },
+            { "x": area.getLeft() + 5, "y": y - 10 }
         ]);
         let theme = mgr.getTheme(this.getFrameName());
         context.fillStyle = theme.getColor(themes.Theme.Color.Background);
@@ -1845,29 +1845,29 @@ export class CToolPlotter extends NamedObject {
     drawFibRayLines(context, startPoint, endPoint) {
         for (let i = 0; i < this.fiboFansSequence.length; i++) {
             let stageY = startPoint.y + (100 - this.fiboFansSequence[i]) / 100 * (endPoint.y - startPoint.y);
-            let tempStartPt = {x: startPoint.x, y: startPoint.y};
-            let tempEndPt = {x: endPoint.x, y: stageY};
+            let tempStartPt = { x: startPoint.x, y: startPoint.y };
+            let tempEndPt = { x: endPoint.x, y: stageY };
             this.drawRayLines(context, tempStartPt, tempEndPt);
         }
     }
 
     drawRayLines(context, startPoint, endPoint) {
         this.getAreaPos();
-        let tempStartPt = {x: startPoint.x, y: startPoint.y};
-        let tempEndPt = {x: endPoint.x, y: endPoint.y};
+        let tempStartPt = { x: startPoint.x, y: startPoint.y };
+        let tempEndPt = { x: endPoint.x, y: endPoint.y };
         let crossPt = this.getRectCrossPt(this.areaPos, tempStartPt, tempEndPt);
         let tempCrossPt;
         if (endPoint.x === startPoint.x) {
             if (endPoint.y === startPoint.y) {
                 tempCrossPt = endPoint;
             } else {
-                tempCrossPt = endPoint.y > startPoint.y ? {x: crossPt[1].x, y: crossPt[1].y} : {
+                tempCrossPt = endPoint.y > startPoint.y ? { x: crossPt[1].x, y: crossPt[1].y } : {
                     x: crossPt[0].x,
                     y: crossPt[0].y
                 };
             }
         } else {
-            tempCrossPt = endPoint.x > startPoint.x ? {x: crossPt[1].x, y: crossPt[1].y} : {
+            tempCrossPt = endPoint.x > startPoint.x ? { x: crossPt[1].x, y: crossPt[1].y } : {
                 x: crossPt[0].x,
                 y: crossPt[0].y
             };
@@ -2008,7 +2008,7 @@ export class DrawArrowLinesPlotter extends CToolPlotter {
         this.toolObject = toolObject;
         this.arrowSizeRatio = 0.03;
         this.arrowSize = 4;
-        this.crossPt = {x: -1, y: -1};
+        this.crossPt = { x: -1, y: -1 };
         this.ctrlPtsNum = 2;
         this.ctrlPts = [new Array(this.ctrlPtsNum), new Array(2)];
         this.getCtrlPts();
@@ -2020,8 +2020,8 @@ export class DrawArrowLinesPlotter extends CToolPlotter {
         this.crossPt.x = startPoint.x + (1 - this.arrowSize / len) * vectorA[0];
         this.crossPt.y = startPoint.y + (1 - this.arrowSize / len) * vectorA[1];
         let vectorAautho = [-vectorA[1], vectorA[0]];
-        let Aautho = {x: vectorAautho[0], y: vectorAautho[1]};
-        let origin = {x: 0, y: 0};
+        let Aautho = { x: vectorAautho[0], y: vectorAautho[1] };
+        let origin = { x: 0, y: 0 };
         vectorAautho[0] = this.arrowSize * Aautho.x / this.lenBetweenPts(Aautho, origin);
         vectorAautho[1] = this.arrowSize * Aautho.y / this.lenBetweenPts(Aautho, origin);
         let arrowEndPt = [this.crossPt.x + vectorAautho[0], this.crossPt.y + vectorAautho[1]];
@@ -2080,7 +2080,7 @@ export class DrawHoriRayLinesPlotter extends CToolPlotter {
         if (this.startPoint.x === this.endPoint.x) {
             Plotter.drawLine(context, this.startPoint.x, this.startPoint.y, this.areaPos.right, this.startPoint.y);
         } else {
-            let tempEndPt = {x: this.endPoint.x, y: this.startPoint.y};
+            let tempEndPt = { x: this.endPoint.x, y: this.startPoint.y };
             this.drawRayLines(context, this.startPoint, tempEndPt);
         }
     }
@@ -2168,7 +2168,7 @@ export class ParallelLinesPlotter extends CToolPlotter {
         let vectorB = [];
         vectorB[0] = this.paraStartPoint.x - this.startPoint.x;
         vectorB[1] = this.paraStartPoint.y - this.startPoint.y;
-        this.paraEndPoint = {x: -1, y: -1};
+        this.paraEndPoint = { x: -1, y: -1 };
         this.paraEndPoint.x = vectorA[0] + vectorB[0] + this.startPoint.x;
         this.paraEndPoint.y = vectorA[1] + vectorB[1] + this.startPoint.y;
     }
@@ -2249,9 +2249,9 @@ export class DrawTriParallelLinesPlotter extends ParallelLinesPlotter {
         let vectorB = [];
         vectorB[0] = this.paraStartPoint.x - this.startPoint.x;
         vectorB[1] = this.paraStartPoint.y - this.startPoint.y;
-        this.para1EndPoint = {x: -1, y: -1};
-        this.para2EndPoint = {x: -1, y: -1};
-        this.para2StartPoint = {x: -1, y: -1};
+        this.para1EndPoint = { x: -1, y: -1 };
+        this.para2EndPoint = { x: -1, y: -1 };
+        this.para2StartPoint = { x: -1, y: -1 };
         this.para1EndPoint.x = vectorA[0] + vectorB[0] + this.startPoint.x;
         this.para1EndPoint.y = vectorA[1] + vectorB[1] + this.startPoint.y;
         this.para2StartPoint.x = this.startPoint.x - vectorB[0];
