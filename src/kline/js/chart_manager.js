@@ -313,6 +313,7 @@ export class ChartManager {
             cached['_dataItems'].length = 0;
             const lines = []
             newData.forEach((item) => {
+                const obj = {};
                 obj['close'] = item[4];
                 obj['date'] = item[0];
                 obj['high'] = item[2];
