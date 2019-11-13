@@ -156,12 +156,13 @@ $ npm install vue-kline （vue组件方式）
             intervalTime: 1000,
             depthWidth: 100,
         });
-        kline.draw();
+
         params = "";
         kline.onRequestData = function onRequestData(params, callback) {
             let data = "这里是你的数据"
             callback(data)
         }
+        kline.draw();
     </script>
   
 ```
