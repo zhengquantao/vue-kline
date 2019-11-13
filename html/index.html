@@ -27,7 +27,7 @@
             intervalTime: 1000,
             depthWidth: 100,
         });
-        kline.draw();
+
         params = "";
         kline.onRequestData = function onRequestData(params, callback) {
             let data = {
@@ -1102,6 +1102,7 @@
             }
             callback(data)
         }
+        kline.draw();
     </script>
 </body>
 
