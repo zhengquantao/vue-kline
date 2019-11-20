@@ -1,4 +1,4 @@
- <script>
+<script>
 import "./css/main.css";
 import Kline from "./js/kline.js";
 const VueKline = {
@@ -710,6 +710,7 @@ const VueKline = {
               </div>
             </div>
           </div>
+
           <div id="chart_canvasGroup" class="temp">
             <canvas
               class="chart_canvas"

@@ -472,7 +472,8 @@ export class OHLCPlotter extends Plotter {
         super(name);
     }
 
-    Draw(context) {
+  Draw(context) {
+
         let mgr = ChartManager.instance;
         let ds = mgr.getDataSource(this.getDataSourceName());
         if (!Util.isInstance(ds, data_sources.MainDataSource) || ds.getDataCount() < 1) {
@@ -706,14 +707,14 @@ export class MainInfoPlotter extends Plotter {
     }
 
 }
-
+//指标绘图
 export class IndicatorPlotter extends NamedObject {
 
     constructor(name) {
         super(name);
     }
 
-    Draw(context) {
+  Draw(context) {
         let mgr = ChartManager.instance;
         let area = mgr.getArea(this.getAreaName());
         let timeline = mgr.getTimeline(this.getDataSourceName());
@@ -784,7 +785,7 @@ export class IndicatorPlotter extends NamedObject {
         context.restore();
     }
 
-    drawVolumeStick(context, theme, ds, first, last, startX, cW, iW, range) {
+  drawVolumeStick(context, theme, ds, first, last, startX, cW, iW, range) {
         let dark = Util.isInstance(theme, themes.DarkTheme);
         let left = startX;
         let bottom = range.toY(0);
@@ -833,7 +834,7 @@ export class IndicatorPlotter extends NamedObject {
         }
     }
 
-    drawMACDStick(context, theme, output, first, last, startX, cW, iW, range) {
+  drawMACDStick(context, theme, output, first, last, startX, cW, iW, range) {
         let left = startX;
         let middle = range.toY(0);
         let strokePosRects = [];
@@ -863,6 +864,7 @@ export class IndicatorPlotter extends NamedObject {
             context.strokeStyle = theme.getColor(themes.Theme.Color.Positive);
             Plotter.createRectangles(context, strokePosRects);
             context.stroke();
+
         }
         if (strokeNegRects.length > 0) {
             context.strokeStyle = theme.getColor(themes.Theme.Color.Negative);

@@ -12,7 +12,7 @@ body {
     position: relative;
     width: 100%;
     overflow: hidden;
-    border:1px solid #0a0a0a;
+    /* border:1px solid #0a0a0a; */
 }
 
 .chart_container *{
@@ -51,25 +51,26 @@ body {
 #chart_toolbar {
     border-bottom: 1px solid;
     *font-weight: bold;
-    height: 29px;
+    height: 39px;
     position: absolute;
-    z-index: 3
+    z-index: 3;
+    padding-top: 7px;
 }
 
 .chart_container.dark #chart_toolbar {
-    background-color: #161616;
+    background-color: #131722;
     border-bottom-color: #404040
 }
 
 .chart_container.light #chart_toolbar {
-    background-color: #f6f6f6;
+    background-color: #fff;
     border-bottom-color: #afb1b3
 }
 
 .chart_container .chart_toolbar_sep {
     float: left;
     height: 100%;
-    width: 16px
+    width: 16px;
 }
 
 .chart_container .chart_dropdown {
@@ -88,12 +89,13 @@ body {
     margin-top: 3px;
     padding-right: 10px;
     z-index: 101;
-    position: relative
+    position: relative;
+    border-radius: 3px 3px 0 0;
 }
 
 .chart_container .chart_dropdown_t a {
     display: inline-block;
-    padding: 3px 12px 5px 10px
+    padding: 3px 12px 5px 10px;
 }
 
 .chart_container .chart_dropdown_data {
@@ -102,7 +104,7 @@ body {
     position: absolute;
     padding: 6px 8px 6px 8px;
     margin-top: -1px;
-    z-index: 100
+    z-index: 100;
 }
 
 .chart_container .chart_dropdown_data table {
@@ -114,11 +116,11 @@ body {
 .chart_container .chart_dropdown_data td {
     border-bottom: 1px solid;
     padding: 8px 6px;
-    vertical-align: top
+    vertical-align: top;
 }
 
 .market_chooser .chart_dropdown_data {
-    width: 370px
+    width: 370px;
 }
 
 .market_chooser .chart_dropdown_data td {
@@ -159,7 +161,7 @@ body {
 }
 
 .chart_container .chart_dropdown-hover.chart_dropdown_data {
-    display: block
+    display: block;
 }
 
 #chart_dropdown_symbols .chart_dropdown_data td {
@@ -182,58 +184,61 @@ body {
 .chart_container.dark .chart_dropdown_t {
     background-image: url("../img/dropdown_w.png");
     background-position: right 9px;
-    border-color: #161616;
+    border-color: #131722;
     color: #e5e5e5
 }
 
 .chart_container.dark .chart_dropdown-hover.chart_dropdown_t {
-    background-color: #161616;
+    background-color: #131722;
     background-image: url("../img/dropup_w.png");
     background-position: right 8px;
     border-color: #606060;
-    color: #fff
+    color: #fff;
 }
 
 .chart_container.dark .chart_dropdown_data {
     background-color: rgba(22, 22, 22, 0.8);
-    border-color: #606060
+    border-color: #606060;
+    border-radius: 3px;
 }
 
 .chart_container.dark .chart_dropdown_data td {
     border-bottom-color: #404040;
-    color: #e5e5e5
+    color: #e5e5e5;
 }
 
 .chart_container.dark .chart_dropdown_data li a {
-    color: #1987da
+    color: #1987da;
 }
 
 .chart_container.dark .chart_dropdown_data li a:hover {
-    background-color: #383838
+    background-color: #383838;
 }
 
 .chart_container.dark .chart_dropdown_data li a.selected {
-    color: #ffac00
+    color: #ffac00;
 }
 
 .chart_container.light .chart_dropdown_t {
     background-image: url("../img/dropdown_b.png");
     background-position: right 10px;
-    border-color: #f6f6f6;
-    color: #393c40
+    border-color: #fff;
+    color: #393c40;
 }
 
 .chart_container.light .chart_dropdown-hover.chart_dropdown_t {
-    background-color: #f6f6f6;
+    background-color: #fff;
     background-image: url("../img/dropup_b.png");
     background-position: right 9px;
     border-color: #4c4f53;
-    color: #393c40
+    color: #393c40;
 }
 
 .chart_container.light .chart_dropdown_data {
-    background-color: rgba(246,246,246,0.8);
-    border-color: #4c4f53
+    background-color: rgba(255, 255, 255, 0.8);
+    border-color: #4c4f53;
+    border-radius: 3px;
+
 }
 
 .chart_container.light .chart_dropdown_data td {
@@ -277,12 +282,13 @@ body {
     margin: 3px 2px;
     padding: 3px 10px;
     position: relative;
-    z-index: 100
+    z-index: 100;
 }
 
 .chart_container.dark .chart_toolbar_button {
     border-color: #404040;
-    color: #e5e5e5
+    color: #e5e5e5;
+    border-radius: 3px;
 }
 
 .chart_container.dark .chart_toolbar_button:hover {
@@ -292,58 +298,56 @@ body {
 }
 
 .chart_container.dark .chart_toolbar_button.selected {
-    background-color: #383838;
-    border-color: #606060;
-    color: #ffac00
+    border-color: #fff;
+    color: #fff;
 }
 
 .chart_container.dark .chart_toolbar_button.selected:hover {
-    background-color: #474747;
-    border-color: #808080;
-    color: #ffac00
+    border-color: #fff;
+    color: #fff;
 }
 
 .chart_container.light .chart_toolbar_button {
     border-color: #ccc;
-    color: #393c40
+    color: #393c40;
+    border-radius: 3px;
 }
 
 .chart_container.light .chart_toolbar_button:hover {
-    background-color: #f4f4f4;
-    color: #393c40
+    background-color: #eee;
+    color: #393c40;
 }
 
 .chart_container.light .chart_toolbar_button.selected {
-    background-color: #f4f4f4;
-    border-color: #f27935;
-    color: #f27935
+    border-color: #000;
+    color: #000;
 }
 
 .chart_container .chart_toolbar_tabgroup {
-    float: left
+    float: left;
 }
 
 .chart_container .chart_toolbar_tabgroup li {
     display: inline-block;
     padding: 4px 0;
-    margin: 3px 0
+    margin: 3px 0;
 }
 
 .chart_container .chart_toolbar_tabgroup li a {
     cursor: pointer;
-    padding: 4px 4px
+    padding: 4px 4px;
 }
 
 .chart_container .chart_toolbar_tabgroup li a:hover {
-    text-decoration: none
+    text-decoration: none;
 }
 
 .chart_container.dark .chart_toolbar_tabgroup li a {
-    color: #1987da
+    color: #1987da;
 }
 
 .chart_container.dark .chart_toolbar_tabgroup li a:hover {
-    background-color: #383838
+    background-color: #383838;
 }
 
 .chart_container.dark .chart_toolbar_tabgroup li a.selected {
@@ -460,7 +464,7 @@ body {
 
 #chart_toolpanel {
     border-right: 1px solid;
-    display: none;
+    display: inline;
     position: absolute;
     width: 32px;
     z-index: 2;
@@ -473,7 +477,9 @@ body {
 
 #chart_toolpanel .chart_toolpanel_button {
     position: relative;
-    z-index: 100
+    z-index: 100;
+    width: 50px;
+    height: 30px;
 }
 
 #chart_toolpanel .chart_toolpanel_icon {
@@ -481,64 +487,65 @@ body {
     background-repeat: no-repeat;
     cursor: pointer;
     height: 16px;
-    margin: 1px 4px 1px 4px;
+    margin: 4px auto 0;
     padding: 4px;
     position: relative;
     width: 16px;
-    z-index: 101
+    z-index: 101;
 }
 
 #chart_toolpanel .chart_toolpanel_tip {
     border-radius: 4px;
-    border: 1px solid;
+    /* border: 1px solid; */
     display: none;
     *font-weight: bold;
     position: absolute;
     padding: 3px 6px 4px 6px;
-    margin-left: 36px;
+    margin-left: 52px;
     margin-top: -25px;
     white-space: nowrap;
-    z-index: 100
+    z-index: 100;
 }
 
 #chart_toolpanel .chart_toolpanel_button:hover .chart_toolpanel_tip {
-    display: block
+    display: block;
 }
 
 .chart_container.dark #chart_toolpanel {
-    background-color: #161616;
+    background-color: #131722;
     border-right-color: #404040
 }
 
 .chart_container.dark .chart_toolpanel_icon {
-    background-color: #161616;
+    background-color: #131722;
 }
 
 .chart_container.dark .chart_toolpanel_button:hover .chart_toolpanel_icon {
     background-color: #404040;
+    border-radius: 4px;
 }
 
 .chart_container.dark .chart_toolpanel_button.selected .chart_toolpanel_icon {
-    background-color: #161616;
+    background-color: #131722;
 }
 
 .chart_container.dark .chart_toolpanel_tip {
-    background-color: #ffac00;
-    border-color: #ffac00;
-    color: #161616
+    background-color: #4F5966;
+    color: #fff;
 }
 
 .chart_container.light #chart_toolpanel {
-    background-color: #f6f6f6;
+    background-color: #fff;
     border-right-color: #afb1b3
 }
 
 .chart_container.light .chart_toolpanel_icon {
-    background-color: #f6f6f6;
+    background-color: #fff;
 }
 
 .chart_container.light .chart_toolpanel_button:hover .chart_toolpanel_icon {
     background-color: #ccc;
+    border-radius: 4px;
 }
 
 .chart_container.light .chart_toolpanel_button.selected .chart_toolpanel_icon {
@@ -546,9 +553,9 @@ body {
 }
 
 .chart_container.light .chart_toolpanel_tip {
-    background-color: #f27938;
-    border-color: #f27938;
-    color: #eee
+    background-color: #262B3E;
+    /* border-color: #f27938; */
+    color: #F2F3F5;
 }
 
 .chart_container.dark #chart_toolpanel .chart_toolpanel_button .chart_toolpanel_icon {
@@ -653,13 +660,13 @@ body {
 #chart_tabbar ul {
     height: 100%;
     list-style: none;
-    padding: 0 0 0 4px
+    padding: 0 0 0 4px;
 }
 
 #chart_tabbar li {
     display: inline-block;
     height: 100%;
-    margin: 0
+    margin: 0;
 }
 
 #chart_tabbar a {
@@ -677,7 +684,7 @@ body {
 }
 
 .chart_container.dark #chart_tabbar {
-    background-color: #161616;
+    background-color: #131722;
     border-top-color: #404040
 }
 
@@ -695,7 +702,7 @@ body {
 }
 
 .chart_container.light #chart_tabbar {
-    background-color: #f6f6f6;
+    background-color: #fff;
     border-top-color: #afb1b3
 }
 
@@ -720,13 +727,15 @@ body {
 #chart_mainCanvas {
     overflow: hidden;
     position: absolute;
-    z-index: 0
+    z-index: 0;
+    /* margin-top: 4px; */
 }
 
 #chart_overlayCanvas {
     overflow: hidden;
     position: absolute;
-    z-index: 2
+    z-index: 2;
+    /* margin-top: 4px; */
 }
 
 #chart_loading {
@@ -887,11 +896,10 @@ body {
 }
 .clear_all .clear_all_icon{
     cursor: pointer;
-    height: 16px;
-    margin: 1px 4px 1px 4px;
-    padding: 4px;
+    height: 24px;
+    margin: 1px auto;
     position: relative;
-    width: 16px;
+    width: 24px;
     z-index: 101;
     background-repeat: no-repeat;
     background-position: center center;
@@ -901,15 +909,18 @@ body {
 }
 .chart_container.dark .clear_all_icon{
     background-image: url("../img/clear_ccc.png");
+
 }
 .chart_container.dark .clear_all_icon:hover{
     background-color: #404040;
+    border-radius: 4px;
 }
 .chart_container.light .clear_all_icon{
     background-image: url("../img/clear_333.png");
 }
 .chart_container.light .clear_all_icon:hover{
-    background-color: #eee;
+    background-color: #ccc;
+    border-radius: 4px;
 }
 
 .chart_container .symbol-title{

@@ -52,17 +52,17 @@ Theme.Font = {
 
 export class DarkTheme extends Theme {
 
-    constructor() {
+  constructor() {
         super();
         this._colors = [];
 
-        this._colors[Theme.Color.Positive] = "#19b34c";
+        this._colors[Theme.Color.Positive] = "#1C5E5E";
         this._colors[Theme.Color.Negative] = "#990e0e";
         this._colors[Theme.Color.PositiveDark] = "#004718";
         this._colors[Theme.Color.NegativeDark] = "#3b0e08";
 
         this._colors[Theme.Color.Unchanged] = "#fff";
-        this._colors[Theme.Color.Background] = "#161616";
+        this._colors[Theme.Color.Background] = "#131722";
         this._colors[Theme.Color.Cursor] = "#aaa";
         this._colors[Theme.Color.RangeMark] = "#f9ee30";
         this._colors[Theme.Color.Indicator0] = "#ddd";
@@ -71,8 +71,8 @@ export class DarkTheme extends Theme {
         this._colors[Theme.Color.Indicator3] = "#6bf";
         this._colors[Theme.Color.Indicator4] = "#a5cf81";
         this._colors[Theme.Color.Indicator5] = "#e18b89";
-        this._colors[Theme.Color.Grid0] = "#555";
-        this._colors[Theme.Color.Grid1] = "#555";
+        this._colors[Theme.Color.Grid0] = "#363C4E";
+        this._colors[Theme.Color.Grid1] = "#363C4E";
         this._colors[Theme.Color.Grid3] = "#888";
         this._colors[Theme.Color.Grid4] = "#aaa";
         this._colors[Theme.Color.TextPositive] = "#1bd357";
@@ -82,6 +82,7 @@ export class DarkTheme extends Theme {
         this._colors[Theme.Color.Text2] = "#888";
         this._colors[Theme.Color.Text3] = "#aaa";
         this._colors[Theme.Color.Text4] = "#ccc";
+
         this._colors[Theme.Color.LineColorNormal] = "#a6a6a6";
         this._colors[Theme.Color.LineColorSelected] = "#ffffff";
         this._colors[Theme.Color.CircleColorFill] = "#161616";
@@ -105,7 +106,7 @@ export class LightTheme extends Theme {
         this._colors[Theme.Color.NegativeDark] = "#ffadaa";
 
         this._colors[Theme.Color.Unchanged] = "#fff";
-        this._colors[Theme.Color.Background] = "#f6f6f6";
+        this._colors[Theme.Color.Background] = "#ffffff";
         this._colors[Theme.Color.Cursor] = "#aaa";
         this._colors[Theme.Color.RangeMark] = "#f27935";
         this._colors[Theme.Color.Indicator0] = "#d27972";
