@@ -1364,7 +1364,8 @@ const VueKline = {
     },
 
     onRangeChange(range) {
-      return range;
+        this.$emit('refreshKlineData', range);
+        return range;
     },
 
     onRequestData(param, callback) {

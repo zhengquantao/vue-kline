@@ -183,6 +183,7 @@ export class RangeAreaBackgroundPlotter extends BackgroundPlotter {
 
 }
 
+//底部时间显示
 export class TimelineAreaBackgroundPlotter extends BackgroundPlotter {
 
     constructor(name) {
@@ -734,6 +735,7 @@ export class IndicatorPlotter extends NamedObject {
         else
             start = Math.max(first, last - 2);
         let indic = dp.getIndicator();
+        console.log(indic, '=======')
         let out, n, outCount = indic.getOutputCount();
         for (n = 0; n < outCount; n++) {
             out = indic.getOutputAt(n);
@@ -784,7 +786,7 @@ export class IndicatorPlotter extends NamedObject {
         }
         context.restore();
     }
-
+    //成交量
   drawVolumeStick(context, theme, ds, first, last, startX, cW, iW, range) {
         let dark = Util.isInstance(theme, themes.DarkTheme);
         let left = startX;
@@ -907,6 +909,7 @@ export class IndicatorPlotter extends NamedObject {
 
 }
 
+//左上指标内容名字
 export class IndicatorInfoPlotter extends Plotter {
 
     constructor(name) {
@@ -931,20 +934,24 @@ export class IndicatorInfoPlotter extends Plotter {
         };
         let indic = dp.getIndicator();
         let title;
+        //选择指标名字
         switch (indic.getParameterCount()) {
             case 0:
                 title = indic.getName();
+                console.log(title, '-----111111');
                 break;
             case 1:
                 title = indic.getName() + "(" +
                     indic.getParameterAt(0).getValue() +
                     ")";
+                console.log(title, '----2222');
                 break;
             case 2:
                 title = indic.getName() + "(" +
                     indic.getParameterAt(0).getValue() + "," +
                     indic.getParameterAt(1).getValue() +
                     ")";
+                console.log(title, '----33333')
                 break;
             case 3:
                 title = indic.getName() + "(" +
@@ -952,6 +959,7 @@ export class IndicatorInfoPlotter extends Plotter {
                     indic.getParameterAt(1).getValue() + "," +
                     indic.getParameterAt(2).getValue() +
                     ")";
+                console.log(title, '----44444')
                 break;
             case 4:
                 title = indic.getName() + "(" +
@@ -960,10 +968,13 @@ export class IndicatorInfoPlotter extends Plotter {
                     indic.getParameterAt(2).getValue() + "," +
                     indic.getParameterAt(3).getValue() +
                     ")";
+                console.log(title, '----555555')
                 break;
             default:
+
                 return;
         }
+        //指标的默认参数
         if (!Plotter.drawString(context, title, rect))
             return;
         let selIndex = timeline.getSelectedIndex();
@@ -981,6 +992,97 @@ export class IndicatorInfoPlotter extends Plotter {
             if (color === undefined)
                 color = themes.Theme.Color.Indicator0 + n;
             context.fillStyle = theme.getColor(color);
+            //画具体左上角的指标参数信息
+            if (!Plotter.drawString(context, info, rect))
+                return;
+        }
+    }
+
+}
+
+export class NewIndicatorInfoPlotter extends Plotter {
+
+    constructor(name) {
+        super(name);
+    }
+    //指标内容
+    Draw(context) {
+        let mgr = ChartManager.instance;
+        let area = mgr.getArea(this.getAreaName());
+        let timeline = mgr.getTimeline(this.getDataSourceName());
+        let dp = mgr.getDataProvider(this.getAreaName() + ".secondary");
+        let theme = mgr.getTheme(this.getFrameName());
+        context.font = theme.getFont(themes.Theme.Font.Default);
+        context.textAlign = "left";
+        context.textBaseline = "top";
+        context.fillStyle = theme.getColor(themes.Theme.Color.Text4);
+        let rect = {
+            x: area.getLeft() + 4,
+            y: area.getTop() + 2,
+            w: area.getWidth() - 8,
+            h: 20
+        };
+        let indic = dp.getIndicator();
+        let title;
+        //选择指标名字
+        switch (indic.getParameterCount()) {
+            case 0:
+                title = indic.getName();
+                console.log(title, '-----111111');
+                break;
+            case 1:
+                title = indic.getName() + "(" +
+                    indic.getParameterAt(0).getValue() +
+                    ")";
+                console.log(title, '----2222');
+                break;
+            case 2:
+                title = indic.getName() + "(" +
+                    indic.getParameterAt(0).getValue() + "," +
+                    indic.getParameterAt(1).getValue() +
+                    ")";
+                console.log(title, '----33333')
+                break;
+            case 3:
+                title = indic.getName() + "(" +
+                    indic.getParameterAt(0).getValue() + "," +
+                    indic.getParameterAt(1).getValue() + "," +
+                    indic.getParameterAt(2).getValue() +
+                    ")";
+                console.log(title, '----44444')
+                break;
+            case 4:
+                title = indic.getName() + "(" +
+                    indic.getParameterAt(0).getValue() + "," +
+                    indic.getParameterAt(1).getValue() + "," +
+                    indic.getParameterAt(2).getValue() + "," +
+                    indic.getParameterAt(3).getValue() +
+                    ")";
+                console.log(title, '----555555')
+                break;
+            default:
+
+                return;
+        }
+        //指标的默认参数
+        if (!Plotter.drawString(context, title, rect))
+            return;
+        let selIndex = timeline.getSelectedIndex();
+        if (selIndex < 0)
+            return;
+        let out, v, info, color;
+        let n, cnt = indic.getOutputCount();
+        for (n = 0; n < cnt; n++) {
+            out = indic.getOutputAt(n);
+            v = out.execute(selIndex);
+            if (isNaN(v))
+                continue;
+            info = "  " + out.getName() + ": " + v.toFixed(2);
+            color = out.getColor();
+            if (color === undefined)
+                color = themes.Theme.Color.Indicator0 + n;
+            context.fillStyle = theme.getColor(color);
+            //画具体左上角的指标参数信息
             if (!Plotter.drawString(context, info, rect))
                 return;
         }
@@ -1044,6 +1146,7 @@ export class MinMaxPlotter extends NamedObject {
 
 }
 
+//底部时间显示
 export class TimelinePlotter extends Plotter {
 
     constructor(name) {
@@ -1174,6 +1277,7 @@ TimelinePlotter.MonthConvert = {
     12: "Dec."
 };
 
+//指标底部名字
 export class RangePlotter extends NamedObject {
 
     constructor(name) {

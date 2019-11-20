@@ -163,6 +163,7 @@ export class Chart {
             let areaName = ChartManager.instance.getIndicatorAreaName('frame0.k0', index);
             if (areaName === '') {
                 Template.createIndicatorChartComps('frame0.k0', indicName);
+                Template.createNewIndicatorChartComps('frame0.k0', indicName);
             } else {
                 ChartManager.instance.setIndicator(areaName, indicName);
             }
