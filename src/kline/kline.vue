@@ -18,6 +18,7 @@ const VueKline = {
         symbol: this.klineParams.symbol,
         symbolName: this.klineParams.symbolName,
         limit: 1000,
+          count: this.klineParams.count,
         intervalTime: this.klineParams.intervalTime,
         debug: false,
         depthWidth: this.klineParams.depthWidth,
@@ -1363,6 +1364,7 @@ const VueKline = {
     },
 
     onRangeChange(range) {
+        this.$emit("refreshKlineData", range);
       return range;
     },
 

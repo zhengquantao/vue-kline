@@ -80,7 +80,7 @@ $ npm install vue-kline （vue组件方式）
     <template>
       <div class="container">
         <!-- :klineParams="klineParams" :klineData="klineData" 绑定下面data数据 用于自定制数据传输到vue-kline, ref="callMethods"绑定一个DOM事件 用于调用接口  --->
-        <Vue-kline :klineParams="klineParams" :klineData="klineData" ref="callMethods"></Vue-kline>
+        <Vue-kline :klineParams="klineParams" :klineData="klineData" ref="callMethods" @refreshKlineData="refreshKlineData"></Vue-kline>
       </div>
     </template>
     <script>
@@ -102,7 +102,8 @@ $ npm install vue-kline （vue组件方式）
             symbol: "BTC",            // 交易代号
             symbolName: "BTC/USD",    // 交易名称
             intervalTime: 5000,       // k线更新周期 毫秒
-            depthWidth: 50            // 深度图宽度
+            depthWidth: 50,           // 深度图宽度
+            count: 2                  //显示指标数量 默认两个  
           },
           klineData: {};              // 数据
       },

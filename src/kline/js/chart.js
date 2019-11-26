@@ -143,6 +143,7 @@ export class Chart {
     }
 
     setIndicator(index, indicName) {
+      let count = Kline.instance.count;
         if (indicName === 'NONE') {
             /*
             let index = 2;
@@ -159,7 +160,7 @@ export class Chart {
             if (Template.displayVolume === false)
                 index = 1;
             */
-            let index = 1;
+            let index = count;
             let areaName = ChartManager.instance.getIndicatorAreaName('frame0.k0', index);
             if (areaName === '') {
                 Template.createIndicatorChartComps('frame0.k0', indicName);
