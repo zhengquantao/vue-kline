@@ -530,33 +530,57 @@ export default class Kline {
             });
             let dom_canvas = document.querySelector('#chart_overlayCanvas');
             dom_canvas.addEventListener("touchstart", function (e) {
-              Kline.instance.buttonDown = true;
-              let r = e.target.getBoundingClientRect();
-              let x = e.touches[0].clientX - r.left;
-              let y = e.touches[0].clientY - r.top;
-              ChartManager.instance.onMouseDown("frame0", x, y);
+                if (e.touches.length == 2) {
+                    let startDistance = getPointsDistance(e);
+                } else {
+                    Kline.instance.buttonDown = true;
+                    let r = e.target.getBoundingClientRect();
+                    let x = e.touches[0].clientX - r.left;
+                    let y = e.touches[0].clientY - r.top;
+                    ChartManager.instance.onMouseDown("frame0", x, y);
+                }
             });
             dom_canvas.addEventListener('touchmove', function (e) {
-            let r = e.target.getBoundingClientRect();
-            let x = e.touches[0].clientX - r.left;
-            let y = e.touches[0].clientY - r.top;
-            let mgr = ChartManager.instance;
-            if (Kline.instance.buttonDown === true) {
-                mgr.onMouseMove("frame0", x, y, true);
-                mgr.redraw("All", false);
-            } else {
-                mgr.onMouseMove("frame0", x, y, false);
-                mgr.redraw("OverlayCanvas");
-            }
-        });
-            dom_canvas.addEventListener("touchend", function (e) {
-            let r = e.target.getBoundingClientRect();
-                    let x = e.clientX - r.left;
-                    let y = e.clientY - r.top;
+                if (e.touches.length == 2) {
+                    let moveDistance = getPointsDistance(e);
+                    let distance = moveDistance - startDistance;
+                    if (distance > 0) {
+                        Control.mouseWheel(e, -1)
+                    };
+                    if (distance < 0) {
+                        Control.mouseWheel(e, 1)
+                    };
+                } else {
+                    let r = e.target.getBoundingClientRect();
+                    let x = e.touches[0].clientX - r.left;
+                    let y = e.touches[0].clientY - r.top;
                     let mgr = ChartManager.instance;
-                    mgr.onMouseLeave("frame0", x, y, false);
-                    mgr.redraw("OverlayCanvas");
-          })
+                    if (Kline.instance.buttonDown === true) {
+                        mgr.onMouseMove("frame0", x, y, true);
+                        mgr.redraw("All", false);
+                    } else {
+                        mgr.onMouseMove("frame0", x, y, false);
+                        mgr.redraw("OverlayCanvas");
+                    }
+                }
+            });
+            dom_canvas.addEventListener("touchend", function (e) {
+                let r = e.target.getBoundingClientRect();
+                let x = e.clientX - r.left;
+                let y = e.clientY - r.top;
+                let mgr = ChartManager.instance;
+                mgr.onMouseLeave("frame0", x, y, false);
+                mgr.redraw("OverlayCanvas");
+            });
+            function getPointsDistance(e) {
+                let x1 = e.touches[0].pageX;
+                let y1 = e.touches[0].pageY;
+                let x2 = e.touches[1].pageX;
+                let y2 = e.touches[1].pageY;
+                let a = x1 - x2;
+                let b = y1 - y2;
+                return Math.sqrt(a * a + b * b)//已知两个直角边开平方得出 斜角边
+            }
         })
 
     }
