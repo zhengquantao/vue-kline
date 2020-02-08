@@ -528,6 +528,35 @@ export default class Kline {
                     $(Kline.instance.element).css({ visibility: 'visible', height: Kline.instance.height + 'px' });
                 }
             });
+            let dom_canvas = document.querySelector('#chart_overlayCanvas');
+            dom_canvas.addEventListener("touchstart", function (e) {
+              Kline.instance.buttonDown = true;
+              let r = e.target.getBoundingClientRect();
+              let x = e.touches[0].clientX - r.left;
+              let y = e.touches[0].clientY - r.top;
+              ChartManager.instance.onMouseDown("frame0", x, y);
+            });
+            dom_canvas.addEventListener('touchmove', function (e) {
+            let r = e.target.getBoundingClientRect();
+            let x = e.touches[0].clientX - r.left;
+            let y = e.touches[0].clientY - r.top;
+            let mgr = ChartManager.instance;
+            if (Kline.instance.buttonDown === true) {
+                mgr.onMouseMove("frame0", x, y, true);
+                mgr.redraw("All", false);
+            } else {
+                mgr.onMouseMove("frame0", x, y, false);
+                mgr.redraw("OverlayCanvas");
+            }
+        });
+            dom_canvas.addEventListener("touchend", function (e) {
+            let r = e.target.getBoundingClientRect();
+                    let x = e.clientX - r.left;
+                    let y = e.clientY - r.top;
+                    let mgr = ChartManager.instance;
+                    mgr.onMouseLeave("frame0", x, y, false);
+                    mgr.redraw("OverlayCanvas");
+          })
         })
 
     }

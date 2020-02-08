@@ -106,8 +106,11 @@ $ npm install vue-kline （vue组件方式）
             count: 2                  //显示指标数量 默认两个  
           },
           klineData: {};              // 数据
+      }},
+      mounted(){
+        this.refreshKlineData(900000);// 进入页面时执行,默认聚合时间900000毫秒(15分钟)     
       },
-      computed: {                     // 当然你可以写在methods中, 我这里写到computed中
+      methods:{                       
           requestData(){              //方法名任意取 
             this.$axios.request({
             url: "xxxxx",             //请求地址  
@@ -117,12 +120,13 @@ $ npm install vue-kline （vue组件方式）
             this.klineData = ret.data      // 把返回数据赋值到上面的 klineData, 
             this.$refs.callMethods.kline.chartMgr.getChart().updateDataAndDisplay(ret.data.data.lines); //强制更改缓存中的lines值,防止显示不同步
           });
-        },  
-      },
-      mounted(){
-        this.requestData;             // 进入页面时执行 requestData()
-      },
-      methods:{                       // 可根据使用场景调用内部自定制方法(如果不需要就不写)
+          },  
+          refreshKlineData(option){
+              if (option===900000){ //如果时间等于15分钟
+                    this.requestData();  
+              }
+          },                  
+        // 以下可根据使用场景调用内部自定制方法(如果不需要就不写)
         this.$refs.callMethods.resize(int width, int height);
         this.$refs.callMethods.setSymbol(string symbol, string symbolName)
         this.$refs.callMethods.setTheme(string style);
@@ -322,6 +326,16 @@ this.$refs.callMethods.onRangeChange();
 
 * `lines`: K线图, 依次是: 时间(ms), 开盘价, 最高价, 最低价, 收盘价, 成交量
 * `depths`深度图数据,`asks`: 一定比例的卖单列表, `bids`:一定比例的买单列表, 其中每项的值依次是 : 成交价, 成交量
+
+## 文件解析
+* kline.js              默认文件配置(程序入口,可自定义改)
+* chart_manager.js      控制文件
+* control.js            控制文件
+* indicators.js         指标文件 (MA,MACD等)
+* layouts.js            控制布局(63行控制右边刻度的宽度)
+* plotter.js            主画图Canvas(线,烛台,小数点位数)
+* themes.js             主题颜色
+
 
 ## 特别说明
 * 当然细心的你可能会发现我npm包名(vue-kline)和github上的名字(vue-Kline)会不一样,对你造成一定误解,对此我十分抱歉。原因是当我先把vue-kline发布到npm上,再回到github上是发现名字十天前已经被人使用了。没有办法github上只能硬着头皮用K大写 vue-Kline。 
