@@ -7,17 +7,20 @@
 ## Build Setup
 > 本项目基于Vue的k线图.某K线插件做了一些封装和二次开发,使其更加便于使用和修改,方便后来的开发者. 修改主要涉及以下几个点:
 
-* 使用 [webpack](https://webpack.js.org/) 打包 js/css/images/*.vue
-* 使用 vue.js 对原有代码进行了拆分和封装 支持所有vue版本
-* 删除了一些不必要的逻辑
-* 把源码中常用可配置的部分抽出来
-* 增加对外接口及事件回调
-* 超级简单的组件引入方式,不用在意其背后的实现原理,真正做到快速上手,快速开发
+
+- [x] 删除一些不必要的逻辑
+- [x] 支持PC端,移动端
+- [x] 使用了[webpack](https://webpack.js.org/) 进行打包 js/css/images/*.vue
+- [x] 简单使用了 vue.js 对原有代码进行了拆分和封装, 支持所有vue版本
+- [x] 把源码中一些常用可配置的部分抽了出来
+- [x] 增加对一些外接口及事件回调
+- [x] 简单的组件引入方式, 不用在意其背后的实现原理, 真正的做到了快速上手, 快速开发
+
 
 ### 演示地址
 
 
-* 简单效果[Demo](https://zhengquantao.github.io/vue-Kline/)
+* 简单效果(Demo暂时没有升级移动端)[Demo](https://zhengquantao.github.io/vue-Kline/)
 
 ### Requirements
 
@@ -251,12 +254,12 @@ this.$refs.callMethods.setIntervalTime(5000);
 this.$refs.callMethods.setDepthWidth(100);
 ```
 
-* onRangeChange: function ()
+* refreshKlineData(int time)
 
-    聚合时间改变时触发
+    聚合时间改变时触发(ms)
 
 ```javascript
-this.$refs.callMethods.onRangeChange();
+this.refreshKlineData(900000);
 ```
 
 
@@ -268,7 +271,7 @@ this.$refs.callMethods.onRangeChange();
 | `onLangChange: function(lang)`   | 语言改变时触发
 | `onSymbolChange: function(symbol, symbolName)`   | 交易品种改变时触发
 | `onThemeChange: function(theme)`   | 主题改变时触发
-| `onRangeChange: function(range)`   | 聚合时间改变时触发
+| `refreshKlineData: function(range)`   | 聚合时间改变时触发
 
 
 
