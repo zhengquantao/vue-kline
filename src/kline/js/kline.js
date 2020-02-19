@@ -529,9 +529,10 @@ export default class Kline {
                 }
             });
             let dom_canvas = document.querySelector('#chart_overlayCanvas');
+            let startDistance;
             dom_canvas.addEventListener("touchstart", function (e) {
                 if (e.touches.length == 2) {
-                    let startDistance = getPointsDistance(e);
+                    startDistance = getPointsDistance(e);
                 } else {
                     Kline.instance.buttonDown = true;
                     let r = e.target.getBoundingClientRect();
@@ -545,10 +546,10 @@ export default class Kline {
                     let moveDistance = getPointsDistance(e);
                     let distance = moveDistance - startDistance;
                     if (distance > 0) {
-                        Control.mouseWheel(e, -1)
+                        Control.mouseWheel(e, 1)
                     };
                     if (distance < 0) {
-                        Control.mouseWheel(e, 1)
+                        Control.mouseWheel(e, -1)
                     };
                 } else {
                     let r = e.target.getBoundingClientRect();
@@ -566,8 +567,8 @@ export default class Kline {
             });
             dom_canvas.addEventListener("touchend", function (e) {
                 let r = e.target.getBoundingClientRect();
-                let x = e.clientX - r.left;
-                let y = e.clientY - r.top;
+                let x = e.touches[0].clientX - r.left;
+                let y = e.touches[0].clientY - r.top;
                 let mgr = ChartManager.instance;
                 mgr.onMouseLeave("frame0", x, y, false);
                 mgr.redraw("OverlayCanvas");
