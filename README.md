@@ -28,7 +28,7 @@
 * jquery.mousewheel
 
 ### 提示
-* 克隆这个项目是不能直接运行的! 需要你新建一个vue项目, 然后用下面方法使用
+* 克隆这个项目是不能直接运行的! [运行项目demo](https://github.com/zhengquantao/vue-kline-demo)
 
 ### 安装和使用
 
@@ -42,7 +42,7 @@ $ npm install vue-kline （vue组件方式）
   only download html （适合html方式引入）
 ```
 
-* 使用组件方式引入, 放在想添加的页面上
+* 使用组件方式引入, 放在想添加的页面上 [（列子）](https://github.com/zhengquantao/vue-kline-demo)
 
 ```html
    <template>
@@ -61,7 +61,7 @@ $ npm install vue-kline （vue组件方式）
     </script>
 ```
 
-* OR 仅仅下载src文件夹
+* OR 仅仅下载src文件夹 [（列子）](https://github.com/zhengquantao/vue-kline-demo)
 ```html
   <template>
     <div id="app">
