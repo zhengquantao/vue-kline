@@ -20,7 +20,7 @@
 ### 演示地址
 
 
-* 简单效果(Demo暂时没有升级移动端)[Demo](https://zhengquantao.github.io/vue-Kline/)
+* 简单效果(Demo暂时没有升级移动端)[Demo](https://zhengquantao.github.io/vue-kline/)
 
 ### Requirements
 
