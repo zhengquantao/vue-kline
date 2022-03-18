@@ -531,18 +531,18 @@ export default class Kline {
             let dom_canvas = document.querySelector('#chart_overlayCanvas');
             let startDistance;
             dom_canvas.addEventListener("touchstart", function (e) {
-                if (e.touches.length == 2) {
+                if (e.changedTouches.length == 2) {
                     startDistance = getPointsDistance(e);
                 } else {
                     Kline.instance.buttonDown = true;
                     let r = e.target.getBoundingClientRect();
-                    let x = e.touches[0].clientX - r.left;
-                    let y = e.touches[0].clientY - r.top;
+                    let x = e.changedTouches[0].clientX - r.left;
+                    let y = e.changedTouches[0].clientY - r.top;
                     ChartManager.instance.onMouseDown("frame0", x, y);
                 }
             });
             dom_canvas.addEventListener('touchmove', function (e) {
-                if (e.touches.length == 2) {
+                if (e.changedTouches.length == 2) {
                     let moveDistance = getPointsDistance(e);
                     let distance = moveDistance - startDistance;
                     if (distance > 0) {
@@ -553,8 +553,8 @@ export default class Kline {
                     };
                 } else {
                     let r = e.target.getBoundingClientRect();
-                    let x = e.touches[0].clientX - r.left;
-                    let y = e.touches[0].clientY - r.top;
+                    let x = e.changedTouches[0].clientX - r.left;
+                    let y = e.changedTouches[0].clientY - r.top;
                     let mgr = ChartManager.instance;
                     if (Kline.instance.buttonDown === true) {
                         mgr.onMouseMove("frame0", x, y, true);
@@ -567,17 +567,17 @@ export default class Kline {
             });
             dom_canvas.addEventListener("touchend", function (e) {
                 let r = e.target.getBoundingClientRect();
-                let x = e.touches[0].clientX - r.left;
-                let y = e.touches[0].clientY - r.top;
+                let x = e.changedTouches[0].clientX - r.left;
+                let y = e.changedTouches[0].clientY - r.top;
                 let mgr = ChartManager.instance;
                 mgr.onMouseLeave("frame0", x, y, false);
                 mgr.redraw("OverlayCanvas");
             });
             function getPointsDistance(e) {
-                let x1 = e.touches[0].pageX;
-                let y1 = e.touches[0].pageY;
-                let x2 = e.touches[1].pageX;
-                let y2 = e.touches[1].pageY;
+                let x1 = e.changedTouches[0].pageX;
+                let y1 = e.changedTouches[0].pageY;
+                let x2 = e.changedTouches[1].pageX;
+                let y2 = e.changedTouches[1].pageY;
                 let a = x1 - x2;
                 let b = y1 - y2;
                 return Math.sqrt(a * a + b * b)//已知两个直角边开平方得出 斜角边
